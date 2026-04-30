@@ -73,6 +73,10 @@ The web dev server proxies `/api/*` to `http://localhost:5175` (see `bpmn-ui/web
 2) Click **Generate from DSL**.
 3) The UI loads BPMN XML into **bpmn-js Modeler**, where you can edit and export `.bpmn`.
 
+## Universal AI prompt (Confluence → DSL)
+
+See `PROMPT_AND_USAGE.md`.
+
 ### Task type prefixes in DSL
 
 Steps can start with explicit type prefixes (they affect BPMN element type and are stripped from the visible label):
