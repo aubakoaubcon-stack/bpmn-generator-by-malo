@@ -1,0 +1,19 @@
+/node_modules/
+/bpmn-ui/web/node_modules/
+/bpmn-ui/server/node_modules/
+
+/bpmn-ui/web/dist/
+
+/bpmn-parser/target/
+
+# Generator outputs / local test artifacts
+generated_bpmn*
+_tmp_*
+input.txt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log

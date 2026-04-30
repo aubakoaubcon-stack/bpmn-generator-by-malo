@@ -1,0 +1,225 @@
+:root {
+  color-scheme: light;
+  --bg: #0b1220;
+  --panel: #101a30;
+  --text: #e7eefc;
+  --muted: rgba(231, 238, 252, 0.7);
+  --border: rgba(231, 238, 252, 0.12);
+  --btn: #2a6df5;
+  --btnText: #ffffff;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans",
+    "Liberation Sans", sans-serif;
+}
+
+#root {
+  height: 100%;
+}
+
+.layout {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(16, 26, 48, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.title {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.themeSelect {
+  background: rgba(11, 18, 32, 0.35);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.themeSelect:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button {
+  background: var(--btn);
+  color: var(--btnText);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  min-height: 0;
+}
+
+.panel {
+  border-right: 1px solid var(--border);
+  background: var(--panel);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+}
+
+.panelTitle {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+textarea {
+  width: 100%;
+  min-height: 180px;
+  resize: vertical;
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  outline: none;
+  background: rgba(11, 18, 32, 0.55);
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.status {
+  font-size: 12px;
+  color: var(--muted);
+  min-height: 18px;
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.modelerWrap {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  background: #ffffff;
+}
+
+.modeler {
+  height: 100%;
+  width: 100%;
+}
+
+/* Make bpmn-js fit nicely */
+.djs-container {
+  background: #f7f8fb;
+}
+
+/* Diagram theme palettes (applied to bpmn-js SVG) */
+.diagramTheme-default {
+  --dg-bg: #ffffff;
+  --dg-stroke: #1f2a44;
+  --dg-fill: #ffffff;
+  --dg-text: #0f172a;
+  --dg-flow: #1f2a44;
+}
+
+.diagramTheme-ocean {
+  --dg-bg: #f6fbff;
+  --dg-stroke: #0b4a6f;
+  --dg-fill: #ffffff;
+  --dg-text: #06324a;
+  --dg-flow: #0ea5e9;
+}
+
+.diagramTheme-purple {
+  --dg-bg: #fbf7ff;
+  --dg-stroke: #4c1d95;
+  --dg-fill: #ffffff;
+  --dg-text: #2e1065;
+  --dg-flow: #7c3aed;
+}
+
+.diagramTheme-mono {
+  --dg-bg: #ffffff;
+  --dg-stroke: #111827;
+  --dg-fill: #ffffff;
+  --dg-text: #111827;
+  --dg-flow: #111827;
+}
+
+.diagramTheme-default .djs-container,
+.diagramTheme-ocean .djs-container,
+.diagramTheme-purple .djs-container,
+.diagramTheme-mono .djs-container {
+  background: var(--dg-bg);
+}
+
+.diagramTheme-default .djs-container svg,
+.diagramTheme-ocean .djs-container svg,
+.diagramTheme-purple .djs-container svg,
+.diagramTheme-mono .djs-container svg {
+  background: var(--dg-bg);
+}
+
+.diagramTheme-default .djs-container .djs-visual rect,
+.diagramTheme-default .djs-container .djs-visual circle,
+.diagramTheme-default .djs-container .djs-visual polygon,
+.diagramTheme-ocean .djs-container .djs-visual rect,
+.diagramTheme-ocean .djs-container .djs-visual circle,
+.diagramTheme-ocean .djs-container .djs-visual polygon,
+.diagramTheme-purple .djs-container .djs-visual rect,
+.diagramTheme-purple .djs-container .djs-visual circle,
+.diagramTheme-purple .djs-container .djs-visual polygon,
+.diagramTheme-mono .djs-container .djs-visual rect,
+.diagramTheme-mono .djs-container .djs-visual circle,
+.diagramTheme-mono .djs-container .djs-visual polygon {
+  stroke: var(--dg-stroke) !important;
+  fill: var(--dg-fill) !important;
+}
+
+.diagramTheme-default .djs-container .djs-connection path,
+.diagramTheme-ocean .djs-container .djs-connection path,
+.diagramTheme-purple .djs-container .djs-connection path,
+.diagramTheme-mono .djs-container .djs-connection path {
+  stroke: var(--dg-flow) !important;
+}
+
+.diagramTheme-default .djs-container text,
+.diagramTheme-ocean .djs-container text,
+.diagramTheme-purple .djs-container text,
+.diagramTheme-mono .djs-container text {
+  fill: var(--dg-text) !important;
+}
+
