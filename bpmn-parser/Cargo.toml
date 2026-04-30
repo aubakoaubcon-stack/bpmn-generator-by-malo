@@ -1,0 +1,12 @@
+[package]
+name = "ogb"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "ogb"
+path = "src/main.rs"
+
+[dependencies]
+# Use a pure-Rust LP/MIP backend on Windows to avoid external COIN-OR CBC linkage.
+good_lp = { version = "1.8.1", default-features = false, features = ["minilp"] }
