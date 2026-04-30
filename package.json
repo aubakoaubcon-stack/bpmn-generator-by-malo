@@ -1,0 +1,14 @@
+{
+  "name": "bpmn-generator-by-malo",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n server,web -c green,cyan \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "npm --prefix bpmn-ui/server run dev",
+    "dev:web": "npm --prefix bpmn-ui/web run dev",
+    "build": "npm --prefix bpmn-ui/web run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
+

@@ -8,7 +8,7 @@ export default defineConfig({
     // Proxy keeps frontend code environment-agnostic: fetch('/api/...').
     proxy: {
       "/api": {
-        target: "http://localhost:5175",
+        target: process.env.VITE_API_TARGET || "http://localhost:5175",
         changeOrigin: true,
       },
     },

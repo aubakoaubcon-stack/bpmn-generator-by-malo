@@ -13,6 +13,30 @@ This repo contains a small toolchain:
 
 ## Quick start (Windows / macOS / Linux)
 
+### Option A) Run everything with one command (recommended)
+
+From the repo root:
+
+```bash
+npm install
+npm run dev
+```
+
+If your API server is not on `5175`, set the web proxy target before starting:
+
+- Windows PowerShell:
+
+```powershell
+$env:VITE_API_TARGET="http://localhost:5176"
+npm run dev
+```
+
+- macOS/Linux:
+
+```bash
+VITE_API_TARGET="http://localhost:5176" npm run dev
+```
+
 ### 1) Build the parser (Rust)
 
 From the repo root:
@@ -83,6 +107,8 @@ See **`PROMPT_AND_USAGE.md`**.
   - Stop the running process (Ctrl+C) or change port via `PORT` env var for the server.
 - **Web shows `/api/*` proxy errors**
   - Ensure the API server is running on `http://localhost:5175`.
+- **Enable OGB debug logs**
+  - Set `OGB_DEBUG=1` when running `ogb` to print layout/graph debug output.
 
 ### Task type prefixes in DSL
 

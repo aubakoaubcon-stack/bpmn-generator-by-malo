@@ -42,6 +42,8 @@ fn main() {
 }
 
 pub fn run_parser(input: &str) -> String {
+    let debug = env::var("OGB_DEBUG").is_ok();
+
     // Initialize the lexer with the input
     let lexer = Lexer::new(input);
 
@@ -51,13 +53,17 @@ pub fn run_parser(input: &str) -> String {
     // Parse the input and handle the result
     match parser.expect("REASON").parse() {
         Ok(mut graph) => {
-            println!("Parsed BPMN Graph:");
+            if debug {
+                println!("Parsed BPMN Graph:");
+            }
 
             solve_layer_assignment(&mut graph);
             // reduce_crossings(&mut graph, &layers);
             assign_xy_to_nodes(&mut graph);
             assign_bend_points(&mut graph);
-            graph.print_graph();
+            if debug {
+                graph.print_graph();
+            }
 
             // for node in &graph.nodes {
             //     if let Some(event) = &node.event {
@@ -216,12 +222,14 @@ pub fn run_parser(input: &str) -> String {
             //     }
             // }
 
-            println!("Edges:");
-            for edge in &graph.edges {
-                if let Some(text) = &edge.text {
-                    println!("  From Node {} to Node {}: '{}'", edge.from, edge.to, text);
-                } else {
-                    println!("  From Node {} to Node {}", edge.from, edge.to);
+            if debug {
+                println!("Edges:");
+                for edge in &graph.edges {
+                    if let Some(text) = &edge.text {
+                        println!("  From Node {} to Node {}: '{}'", edge.from, edge.to, text);
+                    } else {
+                        println!("  From Node {} to Node {}", edge.from, edge.to);
+                    }
                 }
             }
             return generate_bpmn(&graph);
